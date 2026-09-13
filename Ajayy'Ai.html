@@ -1,0 +1,332 @@
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAYY'S AI - Next-Gen Intelligence Engine</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Marked.js for Markdown Rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Highlight.js for Code Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        india: {
+                            saffron: '#FF9933',
+                            saffronDark: '#E68019',
+                            white: '#FFFFFF',
+                            green: '#138808',
+                            greenDark: '#0E6606',
+                            navy: '#000080',
+                            navyLight: '#1A1A99'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'spin-slow': 'spin 12s linear infinite',
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.8', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.03)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Indian Flag Gradient Text & Borders */
+        .flag-gradient-text {
+            background: linear-gradient(135deg, #FF9933 0%, #E68019 35%, #000080 50%, #138808 70%, #0E6606 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .flag-border-bottom {
+            position: relative;
+        }
+        .flag-border-bottom::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%);
+            z-index: 20;
+        }
+
+        /* Glassmorphism effects */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass-panel {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Typing indicator dots */
+        .typing-dot {
+            animation: typingAnimation 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes typingAnimation {
+            0%, 80%, 100% { transform: scale(0); opacity: 0.3; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Markdown Formatting inside AI Bubbles */
+        .markdown-body {
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+        .markdown-body p { margin-bottom: 0.75rem; }
+        .markdown-body p:last-child { margin-bottom: 0; }
+        .markdown-body ul { list-style-type: disc; padding-left: 1.25rem; margin-bottom: 0.75rem; }
+        .markdown-body ol { list-style-type: decimal; padding-left: 1.25rem; margin-bottom: 0.75rem; }
+        .markdown-body h1, .markdown-body h2, .markdown-body h3 { font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; color: inherit; }
+        .markdown-body h1 { font-size: 1.3rem; }
+        .markdown-body h2 { font-size: 1.15rem; }
+        .markdown-body h3 { font-size: 1.05rem; }
+        .markdown-body pre { background: #0f172a; border-radius: 0.5rem; padding: 0.875rem; overflow-x: auto; margin: 0.75rem 0; border: 1px solid #1e293b; }
+        .markdown-body code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; background: rgba(0,0,0,0.08); padding: 0.15rem 0.35rem; border-radius: 0.25rem; font-size: 0.85em; }
+        .dark .markdown-body code { background: rgba(255,255,255,0.15); }
+        .markdown-body pre code { background: transparent; padding: 0; color: #f8fafc; }
+        .markdown-body blockquote { border-left: 3px solid #FF9933; padding-left: 0.75rem; margin: 0.75rem 0; color: #64748b; font-style: italic; }
+        .dark .markdown-body blockquote { color: #94a3b8; }
+        .markdown-body table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.875rem; }
+        .markdown-body th, .markdown-body td { border: 1px solid #e2e8f0; padding: 0.5rem 0.75rem; text-align: left; }
+        .dark .markdown-body th, .dark .markdown-body td { border-color: #334155; }
+        .markdown-body th { background: rgba(0,0,0,0.03); font-weight: 600; }
+        .dark .markdown-body th { background: rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-slate-950 text-gray-800 dark:text-gray-100 h-full flex flex-col overflow-hidden">
+
+    <!-- Top Header -->
+    <header class="bg-white/90 dark:bg-slate-900/90 border-b border-gray-200 dark:border-slate-800 flag-border-bottom z-30 shadow-xs flex-shrink-0">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Left Branding -->
+            <div class="flex items-center space-x-3">
+                <button id="mobile-sidebar-toggle" class="lg:hidden p-2 rounded-lg text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-india-saffron via-white to-india-green p-0.5 shadow-md flex items-center justify-center relative group">
+                    <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center relative overflow-hidden">
+                        <i class="fa-solid fa-dharmachakra text-india-saffron opacity-40 text-2xl absolute animate-spin-slow"></i>
+                        <i class="fa-solid fa-brain text-white text-sm z-10"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <h1 class="text-xl font-extrabold tracking-tight">
+                            AJAYY'S <span class="flag-gradient-text">AI</span>
+                        </h1>
+                        <span class="px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 rounded-full border border-amber-300 dark:border-amber-800">
+                            PRO
+                        </span>
+                    </div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 font-medium hidden sm:block">
+                        Engineered by <span class="text-india-saffron dark:text-amber-400 font-semibold">Ajayy Pandit</span> • Gemini & LLM Powered
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Controls -->
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <!-- Voice Selection Dropdown -->
+                <div class="relative hidden md:block">
+                    <select id="voice-select" class="bg-gray-100 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 text-xs font-medium rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-india-saffron text-gray-700 dark:text-gray-200">
+                        <option value="Sulafat">🎙️ Voice: Warm (Sulafat)</option>
+                        <option value="Zephyr">🎙️ Voice: Bright (Zephyr)</option>
+                        <option value="Puck">🎙️ Voice: Upbeat (Puck)</option>
+                        <option value="Kore">🎙️ Voice: Firm (Kore)</option>
+                        <option value="Fenrir">🎙️ Voice: Excitable (Fenrir)</option>
+                        <option value="Aoede">🎙️ Voice: Breezy (Aoede)</option>
+                    </select>
+                </div>
+
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" title="Toggle Dark/Light Mode">
+                    <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-amber-400 text-lg"></i>
+                </button>
+
+                <!-- Clear Chat -->
+                <button id="clear-chat-btn" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-800/50 hover:bg-red-100 dark:hover:bg-red-900/40 transition-colors flex items-center space-x-1.5" title="Reset Conversation">
+                    <i class="fa-solid fa-trash-can"></i>
+                    <span class="hidden sm:inline">Clear</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Application Container -->
+    <div class="flex-1 flex overflow-hidden relative max-w-7xl w-full mx-auto">
+
+        <!-- Left Sidebar / Feature Suite -->
+        <aside id="sidebar" class="w-72 bg-white dark:bg-slate-900 border-r border-gray-200 dark:border-slate-800 flex flex-col z-20 absolute lg:static inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-lg lg:shadow-none">
+            
+            <!-- Sidebar Header -->
+            <div class="p-4 border-b border-gray-200 dark:border-slate-800">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2">AI Capabilities</h2>
+                
+                <!-- Engine Mode Selector Buttons -->
+                <div class="space-y-1.5">
+                    <button data-mode="gemini-flash" class="mode-btn w-full px-3 py-2.5 rounded-xl text-left text-xs font-semibold flex items-center space-x-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-sm transition-all">
+                        <i class="fa-solid fa-bolt text-sm"></i>
+                        <div class="flex-1">
+                            <div>Gemini 3 Flash</div>
+                            <div class="text-[10px] font-normal opacity-90">Ultra-fast conversational AI</div>
+                        </div>
+                    </button>
+
+                    <button data-mode="gemini-search" class="mode-btn w-full px-3 py-2.5 rounded-xl text-left text-xs font-semibold flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all">
+                        <i class="fa-solid fa-globe text-blue-500 text-sm"></i>
+                        <div class="flex-1">
+                            <div>Live Web Search</div>
+                            <div class="text-[10px] font-normal text-gray-500 dark:text-gray-400">Google Grounded Realtime</div>
+                        </div>
+                    </button>
+
+                    <button data-mode="gemini-image" class="mode-btn w-full px-3 py-2.5 rounded-xl text-left text-xs font-semibold flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all">
+                        <i class="fa-solid fa-wand-magic-sparkles text-purple-500 text-sm"></i>
+                        <div class="flex-1">
+                            <div>Image Studio</div>
+                            <div class="text-[10px] font-normal text-gray-500 dark:text-gray-400">Gemini 3.1 Flash Image</div>
+                        </div>
+                    </button>
+
+                    <button data-mode="openrouter-gpt" class="mode-btn w-full px-3 py-2.5 rounded-xl text-left text-xs font-semibold flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all">
+                        <i class="fa-solid fa-plug text-green-500 text-sm"></i>
+                        <div class="flex-1">
+                            <div>OpenRouter Engine</div>
+                            <div class="text-[10px] font-normal text-gray-500 dark:text-gray-400">Ajayy's Original GPT-4o-mini</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Prompts Library -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-4">
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2">Prompt Library</h3>
+                    <div class="space-y-2">
+                        <button class="preset-prompt-btn w-full text-left p-2.5 rounded-lg border border-gray-200 dark:border-slate-800 hover:border-india-saffron dark:hover:border-india-saffron text-xs text-gray-700 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-slate-800/60 transition-colors">
+                            👑 Who is your owner?
+                        </button>
+                        <button class="preset-prompt-btn w-full text-left p-2.5 rounded-lg border border-gray-200 dark:border-slate-800 hover:border-india-saffron dark:hover:border-india-saffron text-xs text-gray-700 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-slate-800/60 transition-colors">
+                            🇮🇳 What are India's latest space achievements?
+                        </button>
+                        <button class="preset-prompt-btn w-full text-left p-2.5 rounded-lg border border-gray-200 dark:border-slate-800 hover:border-india-saffron dark:hover:border-india-saffron text-xs text-gray-700 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-slate-800/60 transition-colors">
+                            🎨 Generate a 3D futuristic tech hub in Bangalore
+                        </button>
+                        <button class="preset-prompt-btn w-full text-left p-2.5 rounded-lg border border-gray-200 dark:border-slate-800 hover:border-india-saffron dark:hover:border-india-saffron text-xs text-gray-700 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-slate-800/60 transition-colors">
+                            💻 Write a Python script to sort a list using QuickSort
+                        </button>
+                        <button class="preset-prompt-btn w-full text-left p-2.5 rounded-lg border border-gray-200 dark:border-slate-800 hover:border-india-saffron dark:hover:border-india-saffron text-xs text-gray-700 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-slate-800/60 transition-colors">
+                            📊 Summarize quantum computing in 3 bullets
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Features Highlight Card -->
+                <div class="p-3 rounded-xl bg-gradient-to-br from-india-saffron/10 via-transparent to-india-green/10 border border-gray-200 dark:border-slate-800 text-xs">
+                    <div class="font-semibold text-gray-800 dark:text-gray-200 mb-1 flex items-center space-x-1.5">
+                        <i class="fa-solid fa-sparkles text-india-saffron"></i>
+                        <span>Multimodal & Audio</span>
+                    </div>
+                    <p class="text-[11px] text-gray-500 dark:text-gray-400">
+                        Attach images to analyze with Gemini Vision, or click the <i class="fa-solid fa-volume-high text-xs text-india-saffron"></i> icon on AI answers to listen via Gemini TTS.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sidebar Footer -->
+            <div class="p-4 border-t border-gray-200 dark:border-slate-800 text-center">
+                <span class="text-[11px] font-medium text-gray-400 dark:text-gray-500">
+                    Developed with ❤️ for Ajayy Pandit
+                </span>
+            </div>
+        </aside>
+
+        <!-- Sidebar Overlay on Mobile -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-10 hidden lg:hidden"></div>
+
+        <!-- Chat Area -->
+        <main class="flex-1 flex flex-col h-full bg-slate-50 dark:bg-slate-950 overflow-hidden relative">
+
+            <!-- Chat Banner / Current Mode Status -->
+            <div class="px-4 py-2 bg-white/60 dark:bg-slate-900/60 border-b border-gray-200 dark:border-slate-800/60 flex items-center justify-between text-xs">
+                <div class="flex items-center space-x-2">
+                    <span id="active-mode-badge" class="inline-flex items-center px-2 py-0.5 rounded-full font-semibold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+                        <i class="fa-solid fa-bolt mr-1.5 text-xs"></i> Mode: Gemini 3 Flash
+                    </span>
+                    <span class="text-gray-400 dark:text-gray-500 hidden sm:inline">• Powered by Google Gemini API</span>
+                </div>
+                <div class="flex items-center space-x-2 text-gray-400 dark:text-gray-500">
+                    <span id="char-counter" class="text-[11px]">0 chars</span>
+                </div>
+            </div>
+
+            <!-- Messages Stream -->
+            <div id="chat-messages" class="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
+                <!-- Welcome Card -->
+                <div class="max-w-3xl mx-auto my-4 p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-gray-200/80 dark:border-slate-800 text-center space-y-4">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-tr from-india-saffron via-white to-india-green p-1 shadow-lg flex items-center justify-center">
+                        <div class="w-full h-full bg-slate-900 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-dharmachakra text-india-saffron text-3xl animate-spin-slow"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+                            Welcome to <span class="flag-gradient-text">AJAYY'S AI</span>
+                        </h2>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                            Your high-performance AI assistant equipped with Gemini 3 Flash, Live Search Grounding, Gemini 3.1 Flash Image Studio, and Text-To-Speech.
+              
